@@ -35,10 +35,10 @@ export function Success({ files }) {
                     <Form className="text-left mt-2">
                         {(extension !== ".pdf" && extension !== ".heic" && extension !== ".heif") && (<Form.Group>
                             <Form.Label className="mr-2">Viewer link</Form.Label>
-                            <CopyToClipboard text={PUBLIC_URL + "/" + identifier}>
+                            <CopyToClipboard text={PUBLIC_URL + identifier}>
                                 <HiOutlineClipboardCopy onClick={() => copiedToClipboard()} size={20} style={{ color: "#fb5d14", cursor: "pointer", marginTop: "-.4rem" }} />
                             </CopyToClipboard>
-                            <Form.Control type="text" style={{ backgroundColor: "#fb5d14", color: "white" }} readOnly disabled value={PUBLIC_URL + "/" + identifier} />
+                            <Form.Control type="text" style={{ backgroundColor: "#fb5d14", color: "white" }} readOnly disabled value={PUBLIC_URL + identifier} />
                         </Form.Group>)}
                         <Form.Group>
                             <Form.Label className="mr-2">Direct link</Form.Label>
