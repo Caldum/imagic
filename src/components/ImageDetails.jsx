@@ -33,7 +33,7 @@ export default function ImageDetails() {
                 redirect: true
             });
         })
-
+    // .pdf, .heic & .heif extension don't have preview
     return state.redirect || extension === ".pdf" || extension === ".heic" || extension === ".heif" ? <Error404 /> : (
         <Container className="d-flex justify-content-center align-items-center" style={{ backgroundColor: "rgb(25,25,25)", padding: "5rem" }}>
             <Row>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux';
 import { addFile } from '../redux/action';
@@ -7,7 +7,6 @@ import { FILE_SIZE_LIMIT, UPLOAD_SIZE_LIMIT, SUPPORTED_FILES } from '../env';
 import { Redirect } from 'react-router';
 import ReactLoading from 'react-loading';
 import { MdFileUpload } from 'react-icons/md';
-import { GrStatusGood, GrStatusInfo } from 'react-icons/gr';
 
 export function Index({ addFile, files }) {
     const [state, setState] = useState({
@@ -23,14 +22,13 @@ export function Index({ addFile, files }) {
     });
 
     const imageOnChange = event => {
+        // Creates a random 7 digits identifier
         const createIdentifier = () => {
             const chars = "abcdefghijkmnpqrtuvwxyzABCDEFGHJKMNPQRTUVWXYZ2346789";
             let id = "";
-
             for (let i = 0; i < 7; i++) {
                 id += chars.charAt(Math.floor(Math.random() * chars.length));
             }
-
             return String(id);
         }
 
@@ -38,6 +36,7 @@ export function Index({ addFile, files }) {
         const name = file.name;
         const extension = "." + name.split('.').pop();
         const identifier = SUPPORTED_FILES.indexOf(extension) + createIdentifier();
+
         setState({
             ...state,
             image: {
@@ -65,6 +64,7 @@ export function Index({ addFile, files }) {
             });
             return;
         }
+        // Bigger than size limit is not allowed
         else if (state.image.file.size > UPLOAD_SIZE_LIMIT) {
             setState({
                 ...state,
@@ -77,6 +77,7 @@ export function Index({ addFile, files }) {
             });
             return;
         }
+        //Unsupported files are not allowed
         else if (SUPPORTED_FILES.indexOf(state.image.extension) < 0) {
             setState({
                 ...state,
