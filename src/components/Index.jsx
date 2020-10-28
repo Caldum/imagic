@@ -97,10 +97,10 @@ export function Index({ addFile, files }) {
             });
             return Axios({
                 method: 'put',
-                url: 'https://ny.storage.bunnycdn.com/imagictk2/' + state.image.identifier + state.image.extension,
+                url: 'https://ny.storage.bunnycdn.com/imagictk/' + state.image.identifier + state.image.extension,
                 data: state.image.file,
                 headers: {
-                    'AccessKey': '5b2823bf-5e61-4870-af017cdf6cc8-3a9d-4ca2'
+                    'AccessKey': '67111ecc-ee3b-4794-992f83b7166a-d6a7-43de'
                 }
             })
                 .then(() => {
