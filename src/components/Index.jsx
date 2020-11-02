@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { connect } from 'react-redux';
 import { addFile } from '../redux/action';
 import { Container, Row, Col, Button, Form, Alert } from 'react-bootstrap';
-import { FILE_SIZE_LIMIT, UPLOAD_SIZE_LIMIT, SUPPORTED_FILES } from '../env';
+import { HOST_API_KEY, FILE_SIZE_LIMIT, UPLOAD_SIZE_LIMIT, SUPPORTED_FILES } from '../env';
 import { Redirect } from 'react-router';
 import ReactLoading from 'react-loading';
 import { MdFileUpload } from 'react-icons/md';
@@ -100,7 +100,7 @@ export function Index({ addFile, files }) {
                 url: 'https://ny.storage.bunnycdn.com/imagictk/' + state.image.identifier + state.image.extension,
                 data: state.image.file,
                 headers: {
-                    'AccessKey': '67111ecc-ee3b-4794-992f83b7166a-d6a7-43de'
+                    'AccessKey': HOST_API_KEY
                 }
             })
                 .then(() => {

@@ -1,3 +1,5 @@
+// API key
+export const HOST_API_KEY = '67111ecc-ee3b-4794-992f83b7166a-d6a7-43de';
 // File size limit (MB)
 export const FILE_SIZE_LIMIT = 10;
 // Root path
